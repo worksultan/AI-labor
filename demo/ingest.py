@@ -1,40 +1,51 @@
 import re
 import os
+import shutil
 from langchain_community.vectorstores import Chroma
 from langchain_ollama import OllamaEmbeddings
 from langchain_core.documents import Document
 
 def start_ingest():
     file_path = "tk_rk.txt"
-    with open(file_path, "r", encoding="utf-8") as f:
-        text = f.read()
+    if not os.path.exists(file_path):
+        print("❌ Файл tk_rk.txt не найден!")
+        return
 
-    # Режем текст строго по статьям (используем слово Статья как маркер)
-    parts = re.split(r'\n(?=Статья\s+\d+)', text)
+    with open(file_path, "r", encoding="utf-8") as f:
+        full_text = f.read()
+
+    # Режем текст по статьям: ищем "Статья [номер]"
+    article_parts = re.split(r'\n(?=Статья\s+\d+)', full_text)
     
     docs = []
-    for part in parts:
+    print(f"🔪 Разрезаю кодекс на статьи...")
+
+    for part in article_parts:
         part = part.strip()
         if not part: continue
-        # Вытаскиваем номер статьи
-        match = re.search(r'Статья\s+(\d+)', part)
-        art_num = match.group(1) if match else ""
         
-        # Сохраняем статью как отдельный документ с МЕТАДАННЫМИ
+        # Извлекаем номер статьи
+        number_match = re.search(r'Статья\s+(\d+)', part)
+        art_num = number_match.group(1) if number_match else "unknown"
+
+        # Создаем документ с привязкой к ID статьи
         doc = Document(
             page_content=part,
-            metadata={"article_num": art_num}
+            metadata={"article_id": art_num}
         )
         docs.append(doc)
 
-    # Создаем векторную базу (для общих вопросов)
-    embeddings = OllamaEmbeddings(model="nomic-embed-text")
+    # Очистка и создание базы
     if os.path.exists("./db_knowledge"):
-        import shutil
         shutil.rmtree("./db_knowledge")
-        
-    Chroma.from_documents(docs, embeddings, persist_directory="./db_knowledge")
-    print(f"✅ Готово! База создана. Всего статей в памяти: {len(docs)}")
+
+    embeddings = OllamaEmbeddings(model="nomic-embed-text")
+    vector_db = Chroma.from_documents(
+        documents=docs, 
+        embedding=embeddings, 
+        persist_directory="./db_knowledge"
+    )
+    print(f"🚀 ВСЕГО В БАЗЕ: {len(docs)} статей. Каждая статья теперь — уникальный объект.")
 
 if __name__ == "__main__":
     start_ingest()
