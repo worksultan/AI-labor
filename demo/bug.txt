@@ -1,0 +1,51 @@
+
+6 Look, brother, there's a problem. You mentioned searching by ID. There's an issue where, for example, a client writes that they worked from 10 PM to 6 AM. The essence is that they wrote either just letters or just numbers. The artificial intelligence sees it as a word. For example, I wrote, "I worked from 10 PM to 6 AM." It sees the number ten and starts looking for the tenth entry, meaning it works incorrectly. That's the problem.                       (На русском пиши)
+
+7 Вам предлагается отработать 20 дней отпуска, но вы хотите получить денежную компенсацию. В данном случае необходимо рассмотреть статью 77 ТК РК.
+
+Права работника:
+
+Право на ежегодный отдых (статья 76 ТК РК).
+Право на получение денежной компенсации за неиспользованный отпуск в размере, равном заработной плате за один день работы (статья 77 ТК РК).
+Организационно-техническая обязанность работодателя:
+
+Уведомить работника о необходимость отработки оставшихся дней отпуска не позднее чем за 10 календарных дней до окончания отпуска (пункт 1 статьи 76 ТК РК).
+Предоставить работнику возможность выбрать, когда он будет отрабатывать оставшиеся дни отпуска, но с учетом графика работы организации и необходимость обеспечения непрерывности производства или оказания услуг (пункт 2 статьи 76 ТК РК).
+
+ - The result shown here is from the seventh test.
+- I didn't understand it at all.
+- It provided a paragraph that doesn't relate to compensation for unused vacation time upon termination.
+- The paragraph provided is supposed to be for the sixth test, but it's completely incorrect.
+- What is this nonsense? I can't understand it.
+
+8. Все прошло нормально ИИ нашел статью и правильно сказал
+
+9- The ninth test is the same as the sixth test.
+- The issue arises because the system sees a number, like a child's age, and then equates it to a number in the labor code.
+- For example, if there's a child who is two years old, the system matches the digit "two" with a specific clause in the labor code.
+- This causes the system to incorrectly return the wrong article.
+- The problem is with the ID and needs to be fixed.
+
+10- The tenth test also turned out perfectly, with no issues.
+- There were no digits or numbers involved.
+- Artificial intelligence could understand this.
+- It was possible to associate it with a specific article.
+
+Вывод и предположение: I want to make a conclusion regarding all these tests that we have done and make a prediction.
+It turns out that in questions without numbers, it works stably, normally.
+In questions that have numbers, for example, the number nine, artificial intelligence equates it with the number in the coding, that is, article nine.
+For example, "It's 10 PM."
+And it looks like, since it said 10, it's the tenth article.
+That's why it gives the wrong answer.
+In questions where there are no numbers, it perceives normally and finds normal articles and gives the correct answer.
+So, in general, I can draw such a conclusion.
+It is necessary to change the ID so that it does not recognize something like this, or somehow correct it so that it does not think that it is talking about an article when someone asks for help.
+To delve into the meaning, you understand?
+Something like that, in short.
+But I want to make a note that you fix it, but at the same time, do not change this stable code, which is the best option we have.
+So that it is not strongly changed, so that the concept remains the same, but the main thing is to fix all these errors.
+
+
+
+
+
